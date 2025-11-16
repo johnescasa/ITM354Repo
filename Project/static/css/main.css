@@ -1,0 +1,266 @@
+/* static/css/main.css */
+
+:root {
+    --bg: #f5f9fc;
+    --bg-card: #ffffff;
+    --bg-header: #0f3b57;
+    --bg-nav-active: #195a7d;
+    --accent: #f4b000;
+    --text-main: #1b2733;
+    --text-muted: #627081;
+    --border-soft: #dde3ec;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+}
+
+/* Header / Navigation */
+
+.site-header {
+    background: linear-gradient(135deg, #0f3b57, #1b6b90);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.main-nav a {
+    color: #dbe9f5;
+    text-decoration: none;
+    padding: 0.4rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.main-nav a.active {
+    background-color: var(--bg-nav-active);
+    color: #fff;
+}
+
+/* Layout */
+
+.page-content {
+    max-width: 1100px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1rem;
+}
+
+.page-header h2 {
+    margin-bottom: 0.25rem;
+}
+
+.page-header p {
+    margin-top: 0;
+    color: var(--text-muted);
+}
+
+/* Grid & Cards */
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 4px 10px rgba(15, 59, 87, 0.03);
+}
+
+.card-full {
+    margin-top: 1rem;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Stats */
+
+.stat-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0.25rem 0;
+}
+
+.stat-caption {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Forms */
+
+.inline-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.inline-form input,
+.inline-form select {
+    padding: 0.35rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+    font-size: 0.9rem;
+}
+
+.inline-form button {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.9rem;
+    background-color: var(--accent);
+    color: #1b2733;
+    cursor: pointer;
+}
+
+.inline-form button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Tables */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.data-table th,
+.data-table td {
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0.45rem 0.5rem;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #edf3fb;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr.low-stock {
+    background-color: #fff5f0;
+}
+
+.placeholder {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Lists */
+
+.simple-list {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.simple-list li::before {
+    content: "•";
+    margin-right: 0.3rem;
+    color: var(--accent);
+}
+
+/* Footer */
+
+.site-footer {
+    border-top: 1px solid var(--border-soft);
+    padding: 0.75rem 1.5rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer-separator {
+    margin: 0 0.4rem;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 600px) {
+    .site-header {
+        align-items: flex-start;
+    }
+
+    .main-nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
