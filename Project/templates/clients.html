@@ -1,0 +1,49 @@
+<!-- templates/clients.html -->
+{% extends "base.html" %}
+
+{% block title %}Clients | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Clients</h2>
+    <p>View and manage client contact information and purchase history.</p>
+</section>
+
+<section class="card card-full">
+    <header class="card-header">
+        <h3>Client List</h3>
+        <form class="inline-form">
+            <input type="text" name="q" placeholder="Search clients by name or company">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    {% if clients %}
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Primary Contact</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in clients %}
+                <tr>
+                    <td>{{ c.company }}</td>
+                    <td>{{ c.contact }}</td>
+                    <td>{{ c.phone }}</td>
+                    <td>{{ c.address }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="placeholder">
+            No client records loaded yet. Once the <code>Client</code> table is populated,
+            this page will display client information from the database.
+        </p>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!-- templates/orders.html -->
+{% extends "base.html" %}
+
+{% block title %}Orders | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Client Orders</h2>
+    <p>Client purchase orders and custom rod work orders.</p>
+</section>
+
+<section class="card card-full">
+    <header class="card-header">
+        <h3>Client Purchase Orders</h3>
+        <form class="inline-form">
+            <label>
+                Filter by status:
+                <select name="status">
+                    <option value="">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+            </label>
+            <button type="submit">Apply</button>
+        </form>
+    </header>
+
+    {% if orders %}
+        <table class="data-table">
+            <thead>
+            <tr>
+                <th>PO #</th>
+                <th>Client</th>
+                <th>Date of Order</th>
+                <th>Shipping Date</th>
+                <th>Status</th>
+                <th>Total ($)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for o in orders %}
+                <tr>
+                    <td>{{ o.po_number }}</td>
+                    <td>{{ o.client_name }}</td>
+                    <td>{{ o.date_of_order }}</td>
+                    <td>{{ o.Shipping_Date }}</td>
+                    <td>{{ o.Delivery_Status }}</td>
+                    <td>{{ o.Total_Price_of_Order }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="placeholder">
+            Orders will appear here once the <code>Client_Purchase_Order</code> table is connected.
+        </p>
+    {% endif %}
+</section>
+
+<section class="card card-full">
+    <h3>Custom Rod Work Orders</h3>
+    <p class="placeholder">
+        This section can later show work orders with assembly timelines pulled
+        from your <code>Work_Order</code> entity.
+    </p>
+</section>
+{% endblock %}

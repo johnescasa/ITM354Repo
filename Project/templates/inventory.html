@@ -1,0 +1,60 @@
+<!-- templates/inventory.html -->
+{% extends "base.html" %}
+
+{% block title %}Inventory | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Inventory</h2>
+    <p>Components and custom fishing rods, with low-stock alerts.</p>
+</section>
+
+<section class="card card-full">
+    <header class="card-header">
+        <h3>Current Inventory</h3>
+        <form class="inline-form">
+            <label>
+                Type:
+                <select name="type">
+                    <option value="">All</option>
+                    <option value="Component">Components</option>
+                    <option value="Rod">Fishing Rods</option>
+                </select>
+            </label>
+            <button type="submit">Filter</button>
+        </form>
+    </header>
+
+    {% if inventory_items %}
+        <table class="data-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Vendor</th>
+                <th>Quantity</th>
+                <th>Unit Price ($)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in inventory_items %}
+                <tr class="{% if item.Quantity is defined and item.Quantity|int <= 5 %}low-stock{% endif %}">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.description or '' }}</td>
+                    <td>{{ item.Vendor or '' }}</td>
+                    <td>{{ item.Quantity }}</td>
+                    <td>{{ item.Price }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="placeholder">
+            Inventory data will show here once the <code>Inventory</code> tables are wired up.
+            Rows in low stock can be styled and later trigger supplier purchase orders.
+        </p>
+    {% endif %}
+</section>
+{% endblock %}

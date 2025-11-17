@@ -1,0 +1,70 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fishing Rods of Hawaii System{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<header class="site-header">
+    <div class="logo">
+        <span class="logo-mark">FRH</span>
+        <div class="logo-text">
+            <h1>Fishing Rods of Hawaii</h1>
+            <p>Operations & Inventory Portal</p>
+        </div>
+    </div>
+    <nav class="main-nav">
+        <a href="{{ url_for('admin_dashboard') }}"
+           class="{% if request.path == '/admin' %}active{% endif %}">
+            Dashboard
+        </a>
+        <a href="{{ url_for('clients') }}"
+           class="{% if request.path.startswith('/admin/clients') %}active{% endif %}">
+            Clients
+        </a>
+        <a href="{{ url_for('orders') }}"
+           class="{% if request.path.startswith('/admin/orders') %}active{% endif %}">
+            Orders
+        </a>
+        <a href="{{ url_for('inventory') }}"
+           class="{% if request.path.startswith('/admin/inventory') %}active{% endif %}">
+            Inventory
+        </a>
+        <a href="{{ url_for('suppliers') }}"
+           class="{% if request.path.startswith('/admin/suppliers') %}active{% endif %}">
+            Suppliers
+        </a>
+        <a href="{{ url_for('reports') }}"
+           class="{% if request.path.startswith('/admin/reports') %}active{% endif %}">
+            Reports
+        </a>
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+    </nav>
+</header>
+
+<main class="page-content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    <span>&copy; {{ 2025 }} Pacific Systems Solutions, Inc.</span>
+    <span class="footer-separator">•</span>
+    <span>Fishing Rods of Hawaii Database Project</span>
+</footer>
+</body>
+</html>

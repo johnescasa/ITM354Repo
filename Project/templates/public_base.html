@@ -1,0 +1,53 @@
+<!-- templates/public_base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fishing Rods of Hawaii{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<header class="site-header">
+    <div class="logo">
+        <span class="logo-mark">FRH</span>
+        <div class="logo-text">
+            <h1>Fishing Rods of Hawaii</h1>
+            <p>Custom Rods & Components</p>
+        </div>
+    </div>
+    <nav class="main-nav">
+        <a href="{{ url_for('public_home') }}"
+           class="{% if request.path == '/' %}active{% endif %}">
+            Home
+        </a>
+        <a href="{{ url_for('public_order') }}"
+           class="{% if request.path.startswith('/order') %}active{% endif %}">
+            Place Order
+        </a>
+        <a href="{{ url_for('login') }}"
+           class="{% if request.path.startswith('/login') %}active{% endif %}">
+            Staff Login
+        </a>
+    </nav>
+</header>
+
+<main class="page-content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    <span>&copy; {{ 2025 }} Fishing Rods of Hawaii</span>
+</footer>
+</body>
+</html>

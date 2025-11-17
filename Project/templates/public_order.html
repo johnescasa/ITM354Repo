@@ -1,0 +1,46 @@
+<!-- templates/public_order.html -->
+{% extends "public_base.html" %}
+
+{% block title %}Place Order | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Business Order Request</h2>
+    <p>
+        Fill out this form to request a new order for custom rods or components.
+        Our team will contact you to confirm details and pricing.
+    </p>
+</section>
+
+<section class="card card-full">
+    <form method="post" class="vertical-form">
+        <label>
+            Company Name
+            <input type="text" name="company" required>
+        </label>
+
+        <label>
+            Contact Name
+            <input type="text" name="contact" required>
+        </label>
+
+        <label>
+            Email
+            <input type="email" name="email" required>
+        </label>
+
+        <label>
+            Phone
+            <input type="tel" name="phone">
+        </label>
+
+        <label>
+            Order Details / Notes
+            <textarea name="notes" rows="5"
+                      placeholder="Describe the rods/components, quantities, and any specs you need"></textarea>
+        </label>
+
+        <button type="submit">Submit Order Request</button>
+    </form>
+</section>
+{% endblock %}

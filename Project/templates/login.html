@@ -1,0 +1,27 @@
+<!-- templates/login.html -->
+{% extends "public_base.html" %}
+
+{% block title %}Staff Login | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Staff Login</h2>
+    <p>Authorized internal staff only.</p>
+</section>
+
+<section class="card card-full">
+    <form method="post" class="vertical-form">
+        <label>
+            Username
+            <input type="text" name="username" required>
+        </label>
+
+        <label>
+            Password
+            <input type="password" name="password" required>
+        </label>
+
+        <button type="submit">Login</button>
+    </form>
+</section>
+{% endblock %}

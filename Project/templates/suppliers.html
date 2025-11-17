@@ -1,0 +1,43 @@
+<!-- templates/suppliers.html -->
+{% extends "base.html" %}
+
+{% block title %}Suppliers | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Suppliers</h2>
+    <p>Vendor contact information and purchase history.</p>
+</section>
+
+<section class="card card-full">
+    <header class="card-header">
+        <h3>Supplier Directory</h3>
+    </header>
+
+    {% if suppliers %}
+        <table class="data-table">
+            <thead>
+            <tr>
+                <th>Supplier Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for s in suppliers %}
+                <tr>
+                    <td>{{ s.Supplier_Name }}</td>
+                    <td>{{ s.Phone_Number }}</td>
+                    <td>{{ s.Address }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="placeholder">
+            Supplier data will be loaded from the <code>Supplier</code> and
+            <code>Supplier_Purchase_Order</code> tables later.
+        </p>
+    {% endif %}
+</section>
+{% endblock %}

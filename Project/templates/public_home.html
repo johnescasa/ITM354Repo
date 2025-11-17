@@ -1,0 +1,24 @@
+<!-- templates/public_home.html -->
+{% extends "public_base.html" %}
+
+{% block title %}Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Welcome</h2>
+    <p>
+        Fishing Rods of Hawaii builds custom rods and supplies components for business customers.
+    </p>
+</section>
+
+<section class="card card-full">
+    <p>
+        If you’re a business customer, you can submit an order request through the
+        <a href="{{ url_for('public_order') }}">Place Order</a> page.
+    </p>
+    <p>
+        Internal staff can access the full operations and inventory portal via the
+        <a href="{{ url_for('login') }}">Staff Login</a>.
+    </p>
+</section>
+{% endblock %}

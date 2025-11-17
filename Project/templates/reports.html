@@ -1,0 +1,42 @@
+<!-- templates/reports.html -->
+{% extends "base.html" %}
+
+{% block title %}Reports | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Reports</h2>
+    <p>
+        Run routine and ad-hoc reports on sales, expenses, accounts receivable/payable,
+        and inventory health.
+    </p>
+</section>
+
+<section class="grid grid-3">
+    <div class="card">
+        <h3>Sales & Purchases</h3>
+        <ul class="simple-list">
+            <li>Total purchases from vendors (month/quarter)</li>
+            <li>Total purchases from clients (month/quarter)</li>
+            <li>Sales of components/rods (month/quarter)</li>
+        </ul>
+        <button disabled>Run (DB not connected)</button>
+    </div>
+    <div class="card">
+        <h3>Income & Expenses</h3>
+        <ul class="simple-list">
+            <li>Income vs expenses profit report</li>
+            <li>Expenses of components/rods (month/quarter)</li>
+        </ul>
+        <button disabled>Run (DB not connected)</button>
+    </div>
+    <div class="card">
+        <h3>Accounts & Inventory</h3>
+        <ul class="simple-list">
+            <li>Accounts receivable & payable (month/quarter)</li>
+            <li>Current inventory & over/understocked items</li>
+        </ul>
+        <button disabled>Run (DB not connected)</button>
+    </div>
+</section>
+{% endblock %}

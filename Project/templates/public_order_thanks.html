@@ -1,0 +1,21 @@
+<!-- templates/public_order_thanks.html -->
+{% extends "public_base.html" %}
+
+{% block title %}Thank You | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Order Request Received</h2>
+    <p>
+        Mahalo! We’ve received your request and will contact you shortly to confirm details
+        and finalize your order.
+    </p>
+</section>
+
+<section class="card card-full">
+    <p>
+        If you need to add more information, you can submit another request using the
+        <a href="{{ url_for('public_order') }}">Place Order</a> page.
+    </p>
+</section>
+{% endblock %}

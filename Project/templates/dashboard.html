@@ -1,0 +1,43 @@
+<!-- templates/dashboard.html -->
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Fishing Rods of Hawaii{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h2>Dashboard</h2>
+    <p>Quick snapshot of clients, orders, inventory, and payments.</p>
+</section>
+
+<section class="grid grid-4">
+    <div class="card">
+        <h3>Total Clients</h3>
+        <p class="stat-number">{{ stats.client_count }}</p>
+        <p class="stat-caption">Unique client records in the system.</p>
+    </div>
+    <div class="card">
+        <h3>Open Work Orders</h3>
+        <p class="stat-number">{{ stats.open_work_orders }}</p>
+        <p class="stat-caption">Custom rod work orders in progress.</p>
+    </div>
+    <div class="card">
+        <h3>Low Inventory Items</h3>
+        <p class="stat-number">{{ stats.low_inventory_items }}</p>
+        <p class="stat-caption">Below threshold and needing supplier orders.</p>
+    </div>
+    <div class="card">
+        <h3>Outstanding A/R ($)</h3>
+        <p class="stat-number">${{ "%.2f"|format(stats.outstanding_receivables) }}</p>
+        <p class="stat-caption">Unpaid client invoices.</p>
+    </div>
+</section>
+
+<section class="card card-full">
+    <h3>System Overview</h3>
+    <p>
+        This portal will eventually connect client purchase orders, custom rod work orders,
+        supplier purchase orders, and real-time inventory updates into a single database.
+        For now, it’s a shell UI ready for your MySQL schema.
+    </p>
+</section>
+{% endblock %}
